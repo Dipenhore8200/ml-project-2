@@ -77,4 +77,6 @@ if uploaded_image is not None:
     if(cls_score == 1):                                                      
         st.write("Predicted class:", "CROCODILE")
     if(cls_score == 2):                                                      
-        st.write("Predicted class:", "GHARIAL")                                                       
+        st.write("Predicted class:", "GHARIAL")
+if __name__=='__main__':
+    main()
