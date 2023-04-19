@@ -4,3 +4,4 @@ torchvision
 numpy
 keras
 streamlit
+pillow
