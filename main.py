@@ -68,5 +68,6 @@ def predict():
         return render_template("predict.html", prediction="crocodile")
     elif(cls_score == 2):
         return render_template("predict.html", prediction="gharial")
-
+if __name__ == "__main__":
+    app.run(debug=False)
 
