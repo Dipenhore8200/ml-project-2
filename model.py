@@ -50,7 +50,7 @@ test_transforms = transforms.Compose([transforms.Resize(255),
                                       transforms.ToTensor(),
                                       transforms.Normalize([0.485, 0.456, 0.406],
                                                            [0.229, 0.224, 0.225])])
-img_path = "C:\\Users\\Dipen\\Downloads\\th.jpeg"
+##img_path = "C:\\Users\\Dipen\\Downloads\\th.jpeg"
 log_ps = predict(img_path, model)
 cls_score = int(torch.argmax(torch.exp(log_ps)))
 if cls_score == 0:
