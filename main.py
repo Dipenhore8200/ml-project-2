@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 import torch
+import streamlit as st
 from torch import nn
 from torch import optim
 import torch.nn.functional as F
@@ -68,6 +69,20 @@ def predict():
         return render_template("predict.html", prediction="crocodile")
     elif(cls_score == 2):
         return render_template("predict.html", prediction="gharial")
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    from streamlit.report_thread import add_report_ctx
+    from streamlit.server.server import Server
+
+    # Create a WSGI application object
+    def run():
+        add_report_ctx()
+        server = Server.get_current()._get_server()
+        server.set_app(app)
+
+        # Run the app on a specific port
+        server.run(port=8000)
+
+    # Run the WSGI app with Streamlit's pydantic_binders function
+    st.pydantic_binders.patch_streamlit()
+    st.server.run_with_hardware_acceleration(run)
 
