@@ -49,7 +49,7 @@ test_transforms = transforms.Compose([transforms.Resize(255),
 
 
 app = Flask(__name__)
-model = load_ckpt("E:\\New folder\\res18_10 .pth") # Replace with your pre-trained model
+model = load_ckpt("res18_10 .pth") # Replace with your pre-trained model
 
 @app.route("/")
 def home():
