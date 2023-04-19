@@ -1,15 +1,15 @@
 import streamlit as st
 from PIL import Image
 
-# Set page title
-st.set_page_config(page_title="Image Viewer")
+st.title("Upload and Display Image")
 
-# Define a Streamlit file uploader
-uploaded_file = st.file_uploader("Choose an image file", type=["jpg", "jpeg", "png"])
+# Create a file uploader component in the sidebar
+uploaded_file = st.sidebar.file_uploader("Choose an image", type=["jpg", "jpeg", "png"])
 
-# If an image is uploaded, display the image using a Streamlit image element
+# Display the uploaded image on the main page
 if uploaded_file is not None:
-    # Use Pillow to open the uploaded image
-    img = Image.open(uploaded_file)
-    # Display the image using a Streamlit image element
-    st.image(img, caption='Uploaded image')
+    # Use PIL to open the uploaded image
+    image = Image.open(uploaded_file)
+    st.image(image, caption='Uploaded Image')
+else:
+    st.warning("No image uploaded.")
