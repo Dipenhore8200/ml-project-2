@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template
+from flask_cors import CORS
 import torch
 import streamlit as st
 from torch import nn
@@ -50,6 +51,8 @@ test_transforms = transforms.Compose([transforms.Resize(255),
 
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
+
 model = load_ckpt("res18_10 .pth") # Replace with your pre-trained model
 
 @app.route("/")
@@ -70,4 +73,4 @@ def predict():
     elif(cls_score == 2):
         return render_template("predict.html", prediction="gharial")
 if __name__ == "__main__":
-    app.run(debug =True)
+    app.run(port = 8000,debug =True)
