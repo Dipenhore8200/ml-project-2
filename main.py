@@ -71,4 +71,4 @@ def predict():
     elif(cls_score == 2):
         return render_template("predict.html", prediction="gharial")
 if __name__ == "__main__":
-    app.run(port = 8000,debug =True)
+    app.run(debug =True)
