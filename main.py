@@ -55,7 +55,7 @@ model = load_ckpt("res18_10 .pth") # Replace with your pre-trained model
 
 @app.route("/")
 def home():
-    return render_template("templates/index.html")
+    return render_template("index.html")
 
 @app.route("/predict", methods=["POST"])
 def predict():
@@ -65,10 +65,10 @@ def predict():
     cls_score = int(torch.argmax(torch.exp(log_ps)))
     
     if(cls_score == 0):
-        return render_template("templates/predict.html", prediction="elegator")
+        return render_template("predict.html", prediction="elegator")
     elif(cls_score == 1):
-        return render_template("templates/predict.html", prediction="crocodile")
+        return render_template("predict.html", prediction="crocodile")
     elif(cls_score == 2):
-        return render_template("templates/predict.html", prediction="gharial")
+        return render_template("predict.html", prediction="gharial")
 if __name__ == "__main__":
-    app.run(debug =True)
+    app.run(port = 8000,debug =True)
