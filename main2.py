@@ -70,8 +70,8 @@ if uploaded_image is not None:
         st.image(image, caption='Uploaded Image', use_column_width=True)
     if(cls_score == 1):                                                      
         st.write("Predicted class:", "CROCODILE")
-         st.image(image, caption='Uploaded Image', use_column_width=True)
+        st.image(image, caption='Uploaded Image', use_column_width=True)
     if(cls_score == 2):                                                      
         st.write("Predicted class:", "GHARIAL")
-         st.image(image, caption='Uploaded Image', use_column_width=True)
+        st.image(image, caption='Uploaded Image', use_column_width=True)
 
