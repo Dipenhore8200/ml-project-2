@@ -17,7 +17,7 @@ test_transforms = transforms.Compose([transforms.Resize(255),
                                       transforms.Normalize([0.485, 0.456, 0.406],
                                                            [0.229, 0.224, 0.225])])
 def process_image(image):
-    im = PIL.Image.open(image)
+    
     return test_transforms(im)
 
 
