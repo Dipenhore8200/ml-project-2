@@ -18,7 +18,7 @@ test_transforms = transforms.Compose([transforms.Resize(255),
                                                            [0.229, 0.224, 0.225])])
 def process_image(image):
     
-    return test_transforms(im)
+    return test_transforms(image)
 
 
 def mlpredict(image_path, model):
